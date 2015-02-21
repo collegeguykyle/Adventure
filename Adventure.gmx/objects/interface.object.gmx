@@ -80,7 +80,7 @@ over = collision_point(mouse_x, mouse_y, game_obj, true, true);
           <argument>
             <kind>1</kind>
             <string>///Player Movement
-
+if(!selected) exit;
 
 if (over = noone &amp;&amp; mouse_check_button(mb_right)){
    find_path(selected.x, selected.y, mouse_x, mouse_y);
@@ -89,9 +89,10 @@ if (over = noone &amp;&amp; mouse_check_button(mb_right)){
 }
 
 
-if (show_path &amp;&amp; mouse_check_button_released(mb_left)) for (i=0; i&lt;array_height_2d(move_here); i++){
-   if (point_distance(mouse_x, mouse_y, move_here[i,0], move_here[i,1]) &lt; selected.size) stack_move = true;
-}
+if (show_path &amp;&amp; mouse_check_button_released(mb_left)) 
+    for (i=0; i&lt;array_height_2d(move_here); i++){
+        if (point_distance(mouse_x, mouse_y, move_here[i,0], move_here[i,1]) &lt; selected.size) stack_move = true;
+    }
 
 if (stack_move = true){
    show_path = false;
@@ -122,11 +123,12 @@ if (stack_move = true){
           <argument>
             <kind>1</kind>
             <string>///Move View
-can_drag = true;
-if (can_drag = true)
-   {
-   if (mouse_check_button_pressed(mb_middle))
+//can_drag = true;
+//if (can_drag) {
+    var drag = false;
+    if (mouse_check_button_pressed(mb_middle))
       {
+      show_debug_message("Middle mouse pressed.");
       xs = mouse_x - view_xview[0];
       ys = mouse_y - view_yview[0];
       vxs = view_xview[0];
@@ -144,7 +146,7 @@ if (can_drag = true)
        {
        drag = false;
        } 
-    }
+//    }
 </string>
           </argument>
         </arguments>
