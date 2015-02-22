@@ -209,14 +209,15 @@ while (path_found = 0 &amp;&amp; !ds_priority_empty(open_list)) //cycle through 
 }
 
 path_clear_points(path);
-path_add_point(path, goal_x, goal_y, 1);
+path_add_point(path, goal_x, goal_y, 100);
 
 while (path_found &gt; 0)
    {
-   path_insert_point(path, 0, nodes[path_found,0], nodes[path_found,1], 1)
+   path_insert_point(path, 0, nodes[path_found,0], nodes[path_found,1], 100)
    path_found = nodes[path_found, 2];
    }
-if (path_found = 0) path_insert_point(path, 0, start_x, start_y, 1);
+if (path_found = 0) path_insert_point(path, 0, start_x, start_y, 100);
+
 
 //ds_priority_destroy(open_list);
 //ds_list_destroy(closed_list);

@@ -92,20 +92,20 @@
       <object>objects\UI</object>
       <object>objects\move_trigger</object>
     </objects>
-    <object>objects\results</object>
-    <object>objects\move_to</object>
     <object>objects\new_test</object>
-    <object>objects\test20</object>
-    <object>objects\empty</object>
-    <object>objects\object14</object>
-    <object>objects\basic_attack</object>
-    <object>objects\move_ghost</object>
-    <object>objects\test3</object>
-    <object>objects\test_stack</object>
-    <object>objects\test_guy</object>
     <object>objects\graveyard_ai</object>
-    <object>objects\cam_focus</object>
     <object>objects\trap_test</object>
+    <objects name="Old">
+      <object>objects\cam_focus</object>
+      <object>objects\basic_attack</object>
+      <object>objects\empty</object>
+      <object>objects\test20</object>
+      <object>objects\results</object>
+      <object>objects\move_to</object>
+      <object>objects\object14</object>
+      <object>objects\move_ghost</object>
+      <object>objects\test_stack</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\graveyard</room>

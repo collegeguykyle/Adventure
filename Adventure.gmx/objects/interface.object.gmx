@@ -82,25 +82,29 @@ over = collision_point(mouse_x, mouse_y, game_obj, true, true);
             <string>///Player Movement
 
 
-if (over = noone &amp;&amp; mouse_check_button(mb_right)){
+if (over = noone &amp;&amp; mouse_check_button(mb_right))
+{
    find_path(selected.x, selected.y, mouse_x, mouse_y);
    show_path = true;
-   //show_debug_message("find path");
 }
 
 
-if (show_path &amp;&amp; mouse_check_button_released(mb_left)) for (i=0; i&lt;array_height_2d(move_here); i++){
-   if (point_distance(mouse_x, mouse_y, move_here[i,0], move_here[i,1]) &lt; selected.size) stack_move = true;
+if (show_path &amp;&amp; mouse_check_button_released(mb_left)) for (i=0; i&lt;array_height_2d(move_here); i++)
+{
+   if (point_distance(mouse_x, mouse_y, move_here[i,0], move_here[i,1]) &lt; selected.size) 
+   {
+      //While currently I only intend for one unit to move at a time with this code
+      //this is designed so that if there is an instane where I wanted two or more  
+      //units to move simultaneously they could do so by having their IDs inserted 
+      //between "move" and "end move".
+      ds_list_insert(stack, 0, "move");
+      ds_list_insert(stack, 1, selected);
+      ds_list_insert(stack, 2, "end move");
+      //show_path = false;
+   } 
 }
 
-if (stack_move = true){
-   show_path = false;
-   with (selected) path_start(path, 200, 0, 1);
-   if (collision_point(selected.x, selected.y, move_trigger, true, true)){
-      with(selected) path_end();
-      show_debug_message("trap");
-   }
-}
+
 </string>
           </argument>
         </arguments>
@@ -243,28 +247,8 @@ if (show_path){
        }
    }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Movement Stack
 
+//Highlight a circle in yellow if mouse is in it
 var size = array_height_2d(move_here);
 for (i=0; i&lt;size; i++){
    if (point_distance(mouse_x, mouse_y, move_here[i,0], move_here[i,1]) &lt;= selected.size){
