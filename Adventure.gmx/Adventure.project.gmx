@@ -8,10 +8,96 @@
   <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
+<<<<<<< HEAD
   <scripts name="scripts"/>
   <fonts name="fonts"/>
   <objects name="objects"/>
   <rooms name="rooms"/>
+=======
+  <scripts name="scripts">
+    <scripts name="skills">
+      <script>scripts\sk_move.gml</script>
+      <script>scripts\sk_attack.gml</script>
+    </scripts>
+    <scripts name="test">
+      <script>scripts\block_area.gml</script>
+      <script>scripts\move_area.gml</script>
+    </scripts>
+    <scripts name="functions">
+      <script>scripts\is_odd.gml</script>
+      <script>scripts\image_dir.gml</script>
+    </scripts>
+    <scripts name="pathing">
+      <script>scripts\lines_cross.gml</script>
+      <script>scripts\node_los.gml</script>
+      <script>scripts\add_points_sqr.gml</script>
+      <script>scripts\pathing_start.gml</script>
+    </scripts>
+    <script>scripts\is_even.gml</script>
+    <script>scripts\find_path.gml</script>
+  </scripts>
+  <fonts name="fonts">
+    <font>fonts\ft_big</font>
+    <font>fonts\ft_normal</font>
+  </fonts>
+  <objects name="objects">
+    <objects name="Skills">
+      <object>objects\sk_defend</object>
+      <object>objects\sk_ranged</object>
+      <object>objects\sk_push</object>
+    </objects>
+    <objects name="Game Function">
+      <object>objects\game_control</object>
+      <object>objects\nav_mesh</object>
+      <object>objects\turn_control</object>
+      <object>objects\interface</object>
+      <object>objects\stack_control</object>
+    </objects>
+    <objects name="Units">
+      <object>objects\knight</object>
+      <object>objects\skelly</object>
+    </objects>
+    <objects name="Terrain">
+      <object>objects\table</object>
+      <object>objects\barrel</object>
+      <object>objects\tombstone</object>
+      <object>objects\grave</object>
+    </objects>
+    <objects name="Parents">
+      <object>objects\game_obj</object>
+      <object>objects\player_unit</object>
+      <object>objects\no_walk</object>
+      <object>objects\player_u</object>
+      <object>objects\wall</object>
+      <object>objects\unit</object>
+      <object>objects\enemy</object>
+      <object>objects\prop</object>
+      <object>objects\UI</object>
+      <object>objects\move_trigger</object>
+    </objects>
+    <object>objects\results</object>
+    <object>objects\move_to</object>
+    <object>objects\new_test</object>
+    <object>objects\test20</object>
+    <object>objects\empty</object>
+    <object>objects\object14</object>
+    <object>objects\basic_attack</object>
+    <object>objects\move_ghost</object>
+    <object>objects\test3</object>
+    <object>objects\test_stack</object>
+    <object>objects\test_guy</object>
+    <object>objects\graveyard_ai</object>
+    <object>objects\cam_focus</object>
+    <object>objects\trap_test</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\graveyard</room>
+  </rooms>
+  <constants number="2">
+    <constant name="GM_build_date">41967.1565755903</constant>
+    <constant name="GM_version">'1.0.0.0'</constant>
+  </constants>
+>>>>>>> parent of daf18ff... Movement Added to Stack Functionality
   <help>
     <rtf>help.rtf</rtf>
   </help>

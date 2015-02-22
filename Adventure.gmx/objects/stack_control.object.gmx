@@ -27,13 +27,12 @@
             <kind>1</kind>
             <string>///Variables
 
-globalvar stack; 
 stack = ds_list_create();
 ds_list_insert(stack, 0, "new round");
 
 globalvar pause;  pause = false;
 
-movement = false;
+
 </string>
           </argument>
         </arguments>
@@ -56,11 +55,10 @@ movement = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Default Stack
+            <string>///Run Stack
 
 // If stack is empty either wait for player input
 // or tell AI to decide on an action to take.
-/*
 if (ds_list_empty(stack))
    {
    if (t_who = "enemy") ds_list_insert(stack, 0, ai);
@@ -68,74 +66,6 @@ if (ds_list_empty(stack))
    }
    
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Movement
-nxt_on_stack = ds_list_find_value(stack, 0)
-if (is_string(nxt_on_stack) &amp;&amp; nxt_on_stack = "move")
-{
-   //Create an array of each unit that will be moved.
-   to_move = 0;
-   move = 0;
-   while (string(ds_list_find_value(stack, move+1)) != "end move")
-   {
-      to_move[move,0] = ds_list_find_value(stack, move+1);
-      with (to_move[move]) path_start(path, 10, 0, true);
-      //find poistion on the path the unit can move to in one turn:
-      move++
-   }
-   movement = true;
-   ds_list_delete(stack, 0);
-}
-//Move each unit along their provided path unless they collide
-//with a movement trigger, in which case movement must pause
-//until the animation and conditions of that trigger are resolved
-if (movement = true)
-{   
-   for (i=0; i&lt;move; i++)
-   {
-      //If no collision with trigger, move along path
-      var trigger = collision_point(to_move[i].x, to_move[i].y, move_trigger, true, false);
-      if (!trigger || trigger.active = false)
-      {
-         with (to_move[i]) path_speed = 5;
-         var pt1 = to_move[i].moves / path_get_length(path);
-         if (to_move[i].path_position &gt;= pt1)
-         {
-            with(to_move[i]) path_end();
-            ds_list_delete(stack, i);
-         }
-      }
-      else
-      {
-         with (to_move[i]) path_speed = 0;
-         trigger.who = to_move[i];
-      }
-   }  
-   if (is_string(nxt_on_stack) &amp;&amp; nxt_on_stack = "end move")
-   {
-      movement = false;
-      ds_list_delete(stack, 0);
-   }
-}
 </string>
           </argument>
         </arguments>
